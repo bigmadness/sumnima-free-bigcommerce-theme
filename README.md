@@ -1,5 +1,6 @@
 # Sumnima Free Bigcommerce Theme base on Cornerstone
-![tests](https://github.com/bigcommerce/cornerstone/workflows/Theme%20Bundling%20Test/badge.svg?branch=master)
+
+[THEME DEMO](http://sumnima-free-theme.mybigcommerce.com)
 
 Stencil's Cornerstone theme is the building block for BigCommerce theme developers to get started quickly developing premium quality themes on the BigCommerce platform.
 
