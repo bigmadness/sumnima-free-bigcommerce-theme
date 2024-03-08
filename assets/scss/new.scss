@@ -1,0 +1,473 @@
+// =============================================================================
+// STENCIL
+// =============================================================================
+
+// Tools
+// -----------------------------------------------------------------------------
+//
+// 1. Import Citadel's toolkit for use.
+//
+// -----------------------------------------------------------------------------
+
+@import "../../node_modules/@bigcommerce/citadel/dist/tools/toolkit"; // 1
+@import "tools/tools";
+
+// Settings
+// -----------------------------------------------------------------------------
+//
+// 1. Stencil global settings get imported first.
+// 2. Import all Citadel and Foundation settings.
+// 3. Common aria helpers.
+// 4. Import Stencil's component settings overrides.
+// 5. Import tools which set/reset Citadel's global settings, to be consumed by
+//    the rest of Stencil.
+// 6. Import Citadel's version of foundation.
+//      - This enables the ability to "null" variables in the Stencil settings.
+//
+// -----------------------------------------------------------------------------
+
+@import "settings/global/global"; // 1
+
+@import "../../node_modules/@bigcommerce/citadel/dist/settings/global/global"; // 2
+
+@import "settings/global/tools"; // 5
+
+@import "../../node_modules/@bigcommerce/citadel/dist/settings/normalize/normalize"; // 2
+@import "../../node_modules/@bigcommerce/citadel/dist/settings/foundation/foundation"; // 2
+@import "../../node_modules/@bigcommerce/citadel/dist/settings/bigcommerce/bigcommerce"; // 2
+
+@import "../../node_modules/@bigcommerce/citadel/dist/vendor/foundation/foundation"; // 6
+
+@import "settings/normalize/normalize"; // 4
+@import "settings/vendor/vendor"; // 4
+@import "settings/foundation/foundation"; // 4
+@import "settings/citadel/citadel"; // 4
+@import "settings/stencil/stencil"; // 4
+@import "settings/layouts/layouts"; // 4
+
+// Utilities
+// -----------------------------------------------------------------------------
+
+@import "utilities/utilities";
+@import "../../node_modules/@bigcommerce/citadel/dist/utilities/utilities";
+
+// Components
+// -----------------------------------------------------------------------------
+//
+// 1. Import Citadel's normalize dependency.
+// 2. Import Citadel's components.
+// 2. Import Stencil's component additions and custom components.
+//
+// -----------------------------------------------------------------------------
+
+@import "../../node_modules/@bigcommerce/citadel/dist/vendor/normalize/normalize"; // 1
+@import "../../node_modules/@bigcommerce/citadel/dist/components/components"; // 2
+@import "common/index"; // 3
+@import "components/components"; // 6
+
+// Layouts
+// -----------------------------------------------------------------------------
+//
+// 1. Stencil design layout files (example: Header or Footer).
+//
+// -----------------------------------------------------------------------------
+
+@import "layouts/layouts"; // 1
+@import url("https://fonts.googleapis.com/css2?family=Archivo:wght@100;400;700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;700&display=swap");
+
+$navPages-color: stencilColor("navPages-color");
+
+html,
+body,
+div,
+span,
+applet,
+object,
+iframe,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+blockquote,
+pre,
+a,
+abbr,
+acronym,
+address,
+big,
+cite,
+code,
+del,
+dfn,
+em,
+img,
+ins,
+kbd,
+q,
+s,
+samp,
+small,
+strike,
+strong,
+sub,
+sup,
+tt,
+var,
+b,
+u,
+i,
+center,
+dl,
+dt,
+dd,
+ol,
+ul,
+li,
+fieldset,
+form,
+label,
+legend,
+table,
+caption,
+tbody,
+tfoot,
+thead,
+tr,
+th,
+td,
+article,
+aside,
+canvas,
+details,
+embed,
+figure,
+figcaption,
+footer,
+header,
+hgroup,
+menu,
+nav,
+output,
+ruby,
+section,
+summary,
+time,
+mark,
+audio,
+video {
+  font-family: "DM Sans", sans-serif;
+}
+.body .container {
+  background: $color-white;
+  border: container("border");
+  border-radius: 6px;
+}
+.modal {
+  background: $color-white;
+}
+.body {
+  margin-top: 2rem;
+  margin-bottom: 2rem;
+  padding: 0px 20px;
+  @include breakpoint("medium") {
+    padding: 0px;
+  }
+}
+.page-content,
+.page-content--full {
+  padding-bottom: 2rem;
+}
+
+header {
+  .header-logo {
+    margin: 0 3.92857rem;
+    @include breakpoint("medium") {
+      margin: 10px auto 20px;
+    }
+    .header-logo-image-container {
+      min-height: auto;
+      @include breakpoint("medium") {
+        position: relative;
+        width: 100%;
+      }
+    }
+  }
+  .navUser-item--divider {
+    display: none;
+  }
+  .navUser-item.navUser-item--social {
+    margin-top: 0px;
+    padding-right: 0.35714rem;
+  }
+  .navUser-action {
+    text-transform: capitalize;
+
+    .cart-quantity {
+      border-radius: 2px;
+      position: relative;
+
+      &::after {
+        content: "o";
+        position: absolute;
+        font-family: "Poppins", sans-serif;
+        color: stencilColor("navUser-indicator-backgroundColor");
+        top: -10px;
+        left: 5px;
+      }
+    }
+  }
+  .navPages-action {
+    color: rgba($navPages-color, 1) !important;
+  }
+  .navPages-action:hover {
+    color: rgba($navPage-subMenu-item--is-highlighted-color, 1) !important;
+  }
+
+  .navPages-action svg {
+    fill: rgba($navPages-color, 1) !important;
+    stroke: rgba($navPages-color, 1) !important;
+    transition: all 0.15s ease;
+  }
+  .navPages-container {
+    background: $navPages-backgroundColor;
+    .navPage-subMenu-item .navPages-action {
+      text-transform: capitalize;
+      font-size: 16px;
+    }
+    .navPage-subMenu-item > .navPage-subMenu-action {
+      border-bottom: none;
+      margin-bottom: 0px;
+    }
+    .navPages-action {
+      padding: 0.78571rem 1.14286rem;
+    }
+    .navPage-subMenu-item {
+      padding: 5px 5px;
+    }
+    .navPage-subMenu-action:not(.navPages-action-depth-max)
+      + .navPage-childList {
+      margin-left: 0px;
+      border-left: none;
+    }
+    .navPage-subMenu-item {
+      .navPages-action {
+        padding: 5px 15px;
+        @include breakpoint("medium") {
+          padding: 5px 5px;
+        }
+      }
+    }
+  }
+  .navPages-container.is-open {
+    background: $header-bg;
+  }
+  .navPages-container .navPages-action {
+    display: inline-block;
+  }
+  .navPages-list--user {
+  }
+}
+.dropdown--quickSearch {
+  background-color: $header-bg;
+}
+.heroCarousel {
+  margin: -28px -20px 1rem !important;
+  max-width: 91.71429rem;
+  padding: 0;
+  position: relative;
+  width: inherit !important;
+  min-width: inherit !important;
+  .heroCarousel-content {
+    background: transparent;
+
+    @include breakpoint("medium") {
+      background: transparent;
+    }
+  }
+  @include breakpoint("medium") {
+    margin: -1rem auto 1rem !important;
+  }
+  .slick-next,
+  .slick-prev,
+  .slick-dots li {
+    background: transparent;
+    border: none;
+  }
+  .carousel-play-pause-button {
+    bottom: 2.3rem;
+    left: 0.5rem;
+  }
+}
+
+.main.full {
+  padding-top: 2rem;
+  padding-bottom: 2rem;
+}
+
+nav[aria-label="Breadcrumb"] {
+  padding-top: 20px;
+}
+
+.page-heading {
+  font-weight: bold;
+  letter-spacing: 1px;
+}
+
+.card {
+  .card-title a {
+    color: stencilColor("color-textBase");
+    display: block;
+    text-decoration: none;
+    font-family: "Archivo";
+    font-weight: 700;
+  }
+  .card-figcaption-button {
+    width: 100%;
+  }
+
+  .card-text[data-test-info-type="price"] {
+    font-size: 1.1rem;
+  }
+}
+
+.accordion-title {
+  font-family: $header-font-family;
+  font-weight: 700 !important;
+  font-size: 16px;
+}
+
+.pagination-list li a,
+.pagination-list li button {
+  padding: 10px 20px;
+}
+//  price
+.card-text[data-test-info-type="price"] .price-section {
+  display: inline-block;
+  padding-right: 10px;
+  span {
+    display: none;
+  }
+  .price {
+    display: block;
+  }
+}
+.price.price--non-sale {
+  color: $color-grey;
+}
+
+.card-text[data-test-info-type="price"] .rrp-price--withoutTax {
+  display: none;
+}
+
+.page-heading {
+  margin: 0 0 1rem;
+}
+
+.sidebarBlock {
+  .sidebarBlock-heading {
+    display: none;
+  }
+
+  .navList .navList-item {
+    font-size: 16px;
+    padding: 5px 0;
+    text-transform: capitalize;
+    text-align: center;
+
+    @include breakpoint("medium") {
+      text-align: left;
+    }
+  }
+  .facetedSearch-navList .navList-item {
+    text-align: left;
+  }
+}
+//productView
+
+.productView {
+  .productView-title {
+    font-weight: 700;
+  }
+  .productView-product {
+    border-bottom: none;
+    padding-bottom: 0px;
+  }
+  .productView-brand {
+    font-size: 16px;
+  }
+
+  .productView-info {
+    dt {
+      font-weight: bold;
+      float: left;
+      font-size: 13px;
+    }
+    dd {
+      float: left;
+      margin-top: 0px;
+      font-size: 13px;
+      margin-bottom: 12px;
+
+      @include breakpoint("medium") {
+        margin-top: 20px;
+      }
+    }
+  }
+  .productView-options {
+    margin-bottom: 0px;
+    .form-label--alternate {
+      font-weight: bold;
+    }
+    .form-field {
+      font-size: 0;
+      margin-bottom: 1rem;
+    }
+    .add-to-cart-buttons {
+      padding-left: 0px;
+    }
+  }
+  .form.form-wishlist {
+    margin-bottom: 0px;
+  }
+
+  .productView-description {
+    @include breakpoint("medium") {
+      width: 50%;
+    }
+  }
+
+  .socialLinks {
+    text-align: center;
+    @include breakpoint("medium") {
+      text-align: left;
+    }
+  }
+}
+
+footer .container {
+  padding: 0 2rem;
+
+  .footer-info-heading {
+    font-size: 1.2rem;
+    color: stencilColor("color-textBase");
+    font-weight: 700;
+  }
+
+  .footer-info-col {
+    text-transform: capitalize;
+    font-size: 1.1rem;
+
+    .footer-info-list li {
+      padding: 2px 0px;
+    }
+  }
+
+  .footer-info-col[data-section-type="newsletterSubscription"] {
+    float: right;
+  }
+}
